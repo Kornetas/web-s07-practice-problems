@@ -22,11 +22,16 @@
 
     // PROBLEM 3 - Implement `handleChange`
 
-    const initialValues = { /* 1- create initial values */ }
+    const initialValues = { 
+      /* 1- create initial values */ 
+      username: '', password: '', bio: ''
+    }
     function App() {
-      const values = {} // 2- create a single state to store all values using useState
+      const [values, setValues] = useState(initialValues) // 2- create a single state to store all values using useState
       const handleChange = event => {
         // 3- implement a change handler that works for all three inputs
+        const { name, value } = event.target
+        setValues({ ...values, [name]: value })
       }
       return (
         <form onSubmit={e => e.preventDefault()}>

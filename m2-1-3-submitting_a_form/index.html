@@ -27,9 +27,12 @@
       let [password, setPassword] = useState('')
       const submit = event => {
         // implement
+        event.preventDefault()
+        const payload = { username, password }
+        console.log(payload)
       }
       return (
-        <form>{/* this form needs its onSubmit prop */}
+        <form onsubmit={submit}>
           <div>
             <label htmlFor="fname">Username </label><br />
             <input
