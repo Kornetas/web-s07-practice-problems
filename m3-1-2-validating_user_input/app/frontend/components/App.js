@@ -18,6 +18,18 @@ const formSchema = yup.object().shape({
   .oneOf([true], "You must have fun!")
 
   */
+
+  username: yup
+  .string()
+  .min(3, "Username must be at least 3 characters long")
+  .required(),
+
+  fun: yup
+  .boolean()
+  .oneOf([true], "You must have fun!")
+  .required(),
+
+
 })
 
 export default function App() {
@@ -55,6 +67,7 @@ export default function App() {
         />
         </label>
         {/* 2- display username validation error here */}
+        {errors.username}
       </div>
       <div>
         <label>Having fun <input
@@ -65,6 +78,7 @@ export default function App() {
         />
         </label>
         {/* 2- display fun validation error here */}
+        {errors.fun}
       </div>
       <input disabled={!canSubmit} type="submit" />
     </form>
